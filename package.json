@@ -16,9 +16,6 @@
     "url": "https://github.com/alf808/project4-portfolio-optimization/issues"
   },
   "homepage": "https://github.com/alf808/project4-portfolio-optimization#readme",
-  "dependencies": {
-    "gulp": "^3.9.0"
-  },
   "devDependencies": {
     "apache-server-configs": "^2.14.0",
     "browser-sync": "^2.7.6",
