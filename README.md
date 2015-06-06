@@ -1,6 +1,6 @@
 ## Website Performance Optimization portfolio project
 
-Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+Optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
 To get started, check out the repository, inspect the code,
 
@@ -11,6 +11,20 @@ To get started, check out the repository, inspect the code,
 Some useful tips to help you get started:
 
 1. Check out the repository
+
+1. installed nodejs, npm,
+bower (thru npm install -g within app folder) for web app dependencies
+  did bower init to create bower.json config and bower_components directory within app folder
+  used bower ... --save to edit bower.json config
+
+knockout (thru bower) for JavaScript mvc framework
+
+npm init within project folder
+  used npm install .... --save-dev to edit package.json config and install locally in project
+
+installed gulp and gulp plugins npm install ... --save-dev. This is to automate optimization process, e.g. image compression and minimification of CSS, JavaScript, and HTML files
+
+
 1. To inspect the site on your phone, you can run a local server
 
   ```bash
@@ -30,9 +44,33 @@ Some useful tips to help you get started:
 
 Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
 
+
+OPTIMIZATION STEPS
+
+1. changed CSS files to SASS scss format. This will allow me to easily preprocess in case I change anything.
+
+1. changed: link href="styles/print.css" rel="stylesheet", added attribute media="print"
+
+1. deleted old google analytics script and changed it to an asynchronous script from google.this is an asynchronous link to analytics.js
+CODE:
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-63683307-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+1. set up my own analytics ID
+
+1. copied gulpfile.js from Google's web starter kit
+
+1. ran with gulp serve to see temp page
+
 ####Part 2: Optimize Frames per Second in pizza.html
 
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
+To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js.
 
 You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
