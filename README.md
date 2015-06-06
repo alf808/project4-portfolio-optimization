@@ -70,6 +70,23 @@ CODE:
 
 1. the build of minimized JS scripts, I got the idea from Google Web starter kit with the block <!-- build:js scripts/perfmatters.min.js -->
 
+1. deleted link to Google's CDN of web fonts (73/100 for mobile)
+
+1. deferred loading to style.css. code below from Google
+<script>
+var cb = function() {
+var l = document.createElement('link'); l.rel = 'stylesheet';
+l.href = 'styles/style.css';
+var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+};
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(cb);
+else window.addEventListener('load', cb);
+</script>
+
+1. commented out link tag to styles/style.css
+
 ####Part 2: Optimize Frames per Second in pizza.html
 
 To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js.

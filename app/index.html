@@ -8,10 +8,22 @@
     <title>Alf Maglalang: Portfolio</title>
     <link rel="shortcut icon" href="/favicon.ico">
     <!-- Hmm, what is the impact of web fonts on speed? Measure it... -->
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <!-- link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" -->
 
-    <link href="styles/style.css" rel="stylesheet">
     <link href="styles/print.css" rel="stylesheet" media="print">
+    <!-- link href="styles/style.css" rel="stylesheet" -->
+    <!-- grabbed code below from google to defer loading of style.css -->
+    <script>
+    var cb = function() {
+    var l = document.createElement('link'); l.rel = 'stylesheet';
+    l.href = 'styles/style.css';
+    var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+    };
+    var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+    webkitRequestAnimationFrame || msRequestAnimationFrame;
+    if (raf) raf(cb);
+    else window.addEventListener('load', cb);
+    </script>
 
     <!-- build:js scripts/perfmatters.min.js -->
     <script src="scripts/perfmatters.min.js" async></script>
