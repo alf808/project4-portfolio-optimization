@@ -52,6 +52,8 @@ gulp.task('copy', function () {
   return gulp.src([
     'app/*',
     '!app/*.html',
+    '!bower.json',
+    '!bower_components/*',
     'node_modules/apache-server-configs/dist/.htaccess'
   ], {
     dot: true

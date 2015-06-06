@@ -68,6 +68,8 @@ CODE:
 
 1. ran with gulp serve to see temp page
 
+1. the build of minimized JS scripts, I got the idea from Google Web starter kit with the block <!-- build:js scripts/perfmatters.min.js -->
+
 ####Part 2: Optimize Frames per Second in pizza.html
 
 To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js.
