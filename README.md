@@ -43,7 +43,10 @@ Optimize the critical rendering path and make this page render as quickly as pos
 
 1. Using Gulp for this project. For practice, I converted CSS files to SASS scss format. This will allow me to easily preprocess in case I change anything.
 
-1. changed: <link href="styles/print.css" rel="stylesheet"> by adding attribute media="print"
+1. changed below by adding attribute media="print":
+``` html
+<link href="styles/print.css" rel="stylesheet" media="print">
+```
 
 1. deleted old google analytics script from all HTML files and changed it to an asynchronous script from google. This is an asynchronous link to analytics.js according to Google analytics.
 CODE:
@@ -57,7 +60,6 @@ CODE:
   ga('send', 'pageview');
 </script>
 ```
-
 1. Set up my own analytics ID
 
 1. Examined Google Web Starter Kit to find out structure for usage of Gulp
@@ -66,7 +68,7 @@ CODE:
 
 1. Tested web page with 'gulp serve' to see temp page in action.
 
-1. Uploaded to live server the NON-optimized version and analyzed with pageSpeed -- 28/100 for mobile and 30/100 for desktop
+1. Uploaded to live server (http://linguist.us) the NON-optimized version and analyzed with pageSpeed -- 28/100 for mobile and 30/100 for desktop
 ![image](documents/portfolio/mobile-NONoptimized.png)
 
 ![image](documents/portfolio/desktop-NONoptimized.png)
@@ -91,14 +93,16 @@ if (raf) raf(cb);
 else window.addEventListener('load', cb);
 </script>
 ```
-1. Then commented out link tag to styles/style.css
+1. Commented out link tag to styles/style.css
 
-1. These are the final results of the PageSpeed analysis after optimization -- 99/100 for mobile and 97/100 for desktop.
+1. I also added a .htaccess file for caching purposes
+
+1. After the final results of the PageSpeed analysis after optimization -- 99/100 for mobile and 97/100 for desktop.
 ![image](documents/portfolio/mobile-optimized.png)
 
 ![image](documents/portfolio/desktop-optimized.png)
 
-1. Additional documents here:
+1. EXTRA documents here:
 
 2. [NON-optimized PageSpeed Analysis for mobile](documents/portfolio/mobile-NONoptimized.pdf)
 2. [NON-optimized PageSpeed Analysis for desktop](documents/portfolio/desktop-NONoptimized.pdf)
@@ -146,7 +150,8 @@ To optimize views/pizza.html, modify views/js/main.js until frames per second ra
 
 1. In the chrome developer console, the average time to load last 10 frames went from 30-48ms to .30 ms.
 
-1. After taking out any "reading" of layout properties out of FOR loops.
+1. After taking out any "reading" of layout properties out of FOR loops which "forced synchronous layout", the timeline results are here. I was able to get time to resize pizzas from around 100ms [SLOW](http://linguist.us/p4_1_non-optimized/views/pizza.html) down to 2ms [FASTER](http://linguist.us/p4_1_optimized/pizza/).
+
 ![image](documents/pizza/forcedlayout2.png)
 
 
