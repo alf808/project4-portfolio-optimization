@@ -68,7 +68,7 @@ CODE:
 
 1. Tested web page with 'gulp serve' to see temp page in action.
 
-1. Uploaded to live server (http://linguist.us) the NON-optimized version and analyzed with pageSpeed -- 28/100 for mobile and 30/100 for desktop
+1. Uploaded to live server (http://linguist.us/p4_1_non-optimized/views/pizza.html) the NON-optimized version and analyzed with pageSpeed -- 28/100 for mobile and 30/100 for desktop
 ![image](documents/portfolio/mobile-NONoptimized.png)
 
 ![image](documents/portfolio/desktop-NONoptimized.png)
@@ -97,7 +97,7 @@ else window.addEventListener('load', cb);
 
 1. I also added a .htaccess file for caching purposes
 
-1. After the final results of the PageSpeed analysis after optimization -- 99/100 for mobile and 97/100 for desktop.
+1. After the final results of the PageSpeed analysis after optimization -- 99/100 for mobile and 97/100 for desktop. Live version here: http://linguist.us/p4_1_optimized
 ![image](documents/portfolio/mobile-optimized.png)
 
 ![image](documents/portfolio/desktop-optimized.png)
