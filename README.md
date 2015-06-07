@@ -65,7 +65,7 @@ CODE:
 
 1. Tested web page with 'gulp serve' to see temp page in action.
 
-1. Uploaded to live server the NON-optimized version and analyzed with pageSpeed.
+1. Uploaded to live server the NON-optimized version and analyzed with pageSpeed -- 28/100 for mobile and 30/100 for desktop
 ![image](documents/portfolio/mobile-NONoptimized.png)
 
 ![image](documents/portfolio/desktop-NONoptimized.png)
@@ -91,16 +91,16 @@ else window.addEventListener('load', cb);
 
 1. Then commented out link tag to styles/style.css
 
-1. These are the final results of the PageSpeed analysis after optimization
+1. These are the final results of the PageSpeed analysis after optimization -- 99/100 for mobile and 97/100 for mobile.
 ![image](documents/portfolio/mobile-optimized.png)
 
 ![image](documents/portfolio/desktop-optimized.png)
 
 1. Additional documents here:
 Detailed PageSpeed Analyses of pages:
-- [NON-optimized PageSpeed Analysis] documents/portfolio/mobile-NONoptimized.pdf
+* [NON-optimized PageSpeed Analysis] (documents/portfolio/mobile-NONoptimized.pdf)
 and documents/portfolio/desktop-NONoptimized.pdf
-- [Optimized PageSpeed Analysis] documents/portfolio/desktop-optimized.pdf
+* [Optimized PageSpeed Analysis] (documents/portfolio/desktop-optimized.pdf)
 
 
 
