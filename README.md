@@ -95,13 +95,14 @@ To optimize views/pizza.html, you will need to modify views/js/main.js until you
 
 1. As my screenshots show, the timeline of the NON-optimized pizza web page is below 30 FPS.
 
-1. in addition to Optimization courses, I also watched udacity's webcast to help me with the solution: https://plus.google.com/events/c8eah6f0d0t9eretebpm7dqi0ok?authkey=CKaNhtb0quvqKA
+1. in addition to Optimization courses, I read udacity's notes at https://github.com/udacity/fend-office-hours/tree/master/Web%20Optimization/Effective%20Optimizations%20for%2060%20FPS and also watched udacity's webcast to help me with the solution: https://plus.google.com/events/c8eah6f0d0t9eretebpm7dqi0ok?authkey=CKaNhtb0quvqKA
 
 ### FIRST STAGE OPTIMIZATION:
 1. I took out scrollTop out of the FOR loop in the function updatePositions() in main.js and decreased the number of sliding pizzas from 200 to 20 in document.addEventListener('DOMContentLoaded', function() {}
 
 1. The screenshot FirstStageOptimization.png shows that the FPS increased from 30 FPS. The 60fps line is now showing in the timeline
 
+1. In the chrome developer console, the average time to load last 10 frames went from 30-48ms to .30 ms.
 
 -----------------------------
 You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
