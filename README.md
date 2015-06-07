@@ -91,7 +91,7 @@ To optimize views/pizza.html, modify views/js/main.js until frames per second ra
 1. measured with google PageSpeed Insights first to see what needs to be optimized on loading without user events. For mobile the score is 66/100 and for desktop 30/100 (http://linguist.us/p4_1_non-optimized/views/pizza.html). I optimized all the assets CSS, JS, HTML, and image files using Gulp. After optimization of some assets, mobile score is 91/100 and desktop 93/100 (http://linguist.us/p4_1_optimized/pizza/).
 
 1. As my screenshots show, the timeline of the NON-optimized pizza web page is below 30 FPS.
-![image](documents/pizza/pizzaTimeNONoptimized1.png)
+![image](documents/pizza/pizzaTimelineNONoptimized1.png)
 
 1. in addition to Optimization courses, I read udacity's notes at https://github.com/udacity/fend-office-hours/tree/master/Web%20Optimization/Effective%20Optimizations%20for%2060%20FPS and also watched udacity's webcast to help me with the solution: https://plus.google.com/events/c8eah6f0d0t9eretebpm7dqi0ok?authkey=CKaNhtb0quvqKA
 
