@@ -142,7 +142,8 @@ else window.addEventListener('load', cb);
 
 1. in addition to Optimization courses, I read udacity's notes at https://github.com/udacity/fend-office-hours/tree/master/Web%20Optimization/Effective%20Optimizations%20for%2060%20FPS and also watched udacity's webcast to help me with the solution: https://plus.google.com/events/c8eah6f0d0t9eretebpm7dqi0ok?authkey=CKaNhtb0quvqKA
 
-To optimize views/pizza.html, modify views/js/main.js until frames per second rate is 60 fps or higher.
+To optimize pizza project, I modified main.js until frames per second rate is 60 fps or higher.
+
 1. I took out scrollTop out of the FOR loop in the function updatePositions() in main.js and decreased the number of sliding pizzas from 200 to 20 in document.addEventListener('DOMContentLoaded', function() {}
 
 1. The screenshot shows that the FPS increased from 30 FPS. The 60fps line is now showing in the timeline
@@ -150,9 +151,13 @@ To optimize views/pizza.html, modify views/js/main.js until frames per second ra
 
 1. In the chrome developer console, the average time to load last 10 frames went from 30-48ms to .30 ms.
 
-1. After taking out any "reading" of layout properties out of FOR loops which "forced synchronous layout", the timeline results are here. I was able to get time to resize pizzas from around 100ms [SLOW](http://linguist.us/p4_1_non-optimized/views/pizza.html) down to 2ms [FASTER](http://linguist.us/p4_1_optimized/pizza/).
-
+1. For the slider event: after taking out any "reading" of layout properties out of FOR loops which "forced synchronous layout", the timeline results are here. The time to resize pizzas took around 100ms or above. Please note all the rectangles indicating multiple warnings to forced synchronous layout. [SLOW](http://linguist.us/p4_1_non-optimized/views/pizza.html)
 ![image](documents/pizza/forcedlayout2.png)
+
+1. After revising changePizzaSizes, I was able to get the to reload the pizzas
+down to 2ms [FASTER](http://linguist.us/p4_1_optimized/pizza/).
+
+![image](documents/pizza/sliderOptimized.png)
 
 
 -----------------------------
