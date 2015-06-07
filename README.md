@@ -124,10 +124,10 @@ else window.addEventListener('load', cb);
 
 ![image](documents/pizza/forcedSynchronous.png)
 
-2. download timeline here for further analysis of results above: (documents/pizza/TimelineRawData-pizzaNonOptimized.json.zip)
+2. Most the errors or warnings are of "Forced Synchronous Layout". Download timeline here for further analysis of results above: (documents/pizza/TimelineRawData-pizzaNonOptimized.json.zip)
 
 
-### FIRST STAGE OPTIMIZATION:
+### OPTIMIZATION STEPS:
 
 1. I optimized all the assets CSS, JS, HTML, and image files using Gulp. After optimization of some assets, mobile score is 91/1
 00 and desktop 93/100 (http://linguist.us/p4_1_optimized/pizza/).
@@ -138,14 +138,17 @@ else window.addEventListener('load', cb);
 
 1. in addition to Optimization courses, I read udacity's notes at https://github.com/udacity/fend-office-hours/tree/master/Web%20Optimization/Effective%20Optimizations%20for%2060%20FPS and also watched udacity's webcast to help me with the solution: https://plus.google.com/events/c8eah6f0d0t9eretebpm7dqi0ok?authkey=CKaNhtb0quvqKA
 
-
 To optimize views/pizza.html, modify views/js/main.js until frames per second rate is 60 fps or higher.
-
 1. I took out scrollTop out of the FOR loop in the function updatePositions() in main.js and decreased the number of sliding pizzas from 200 to 20 in document.addEventListener('DOMContentLoaded', function() {}
 
-1. The screenshot FirstStageOptimization.png shows that the FPS increased from 30 FPS. The 60fps line is now showing in the timeline
+1. The screenshot shows that the FPS increased from 30 FPS. The 60fps line is now showing in the timeline
+![image](documents/pizza/FirstStageOptimization.png)
 
 1. In the chrome developer console, the average time to load last 10 frames went from 30-48ms to .30 ms.
+
+1. After taking out any "reading" of layout properties out of FOR loops.
+![image](documents/pizza/forcedlayout2.png)
+
 
 -----------------------------
 You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
@@ -167,21 +170,3 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 
 * <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
 * <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
-
-### Sample Portfolios
-
-Feeling uninspired by the portfolio? Here's a list of cool portfolios I found after a few minutes of Googling.
-
-* <a href="http://www.reddit.com/r/webdev/comments/280qkr/would_anybody_like_to_post_their_portfolio_site/">A great discussion about portfolios on reddit</a>
-* <a href="http://ianlunn.co.uk/">http://ianlunn.co.uk/</a>
-* <a href="http://www.adhamdannaway.com/portfolio">http://www.adhamdannaway.com/portfolio</a>
-* <a href="http://www.timboelaars.nl/">http://www.timboelaars.nl/</a>
-* <a href="http://futoryan.prosite.com/">http://futoryan.prosite.com/</a>
-* <a href="http://playonpixels.prosite.com/21591/projects">http://playonpixels.prosite.com/21591/projects</a>
-* <a href="http://colintrenter.prosite.com/">http://colintrenter.prosite.com/</a>
-* <a href="http://calebmorris.prosite.com/">http://calebmorris.prosite.com/</a>
-* <a href="http://www.cullywright.com/">http://www.cullywright.com/</a>
-* <a href="http://yourjustlucky.com/">http://yourjustlucky.com/</a>
-* <a href="http://nicoledominguez.com/portfolio/">http://nicoledominguez.com/portfolio/</a>
-* <a href="http://www.roxannecook.com/">http://www.roxannecook.com/</a>
-* <a href="http://www.84colors.com/portfolio.html">http://www.84colors.com/portfolio.html</a>
