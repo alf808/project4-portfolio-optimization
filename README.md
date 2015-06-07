@@ -46,6 +46,7 @@ Optimize the critical rendering path and make this page render as quickly as pos
 
 1. deleted old google analytics script from all HTML files and changed it to an asynchronous script from google. This is an asynchronous link to analytics.js according to Google analytics.
 CODE:
+``` html
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -54,6 +55,7 @@ CODE:
   ga('create', 'UA-63683307-1', 'auto');
   ga('send', 'pageview');
 </script>
+```
 
 1. Set up my own analytics ID
 
