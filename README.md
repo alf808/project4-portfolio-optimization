@@ -2,28 +2,24 @@
 
 Optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
-To get started, check out the repository, inspect the code,
+#### Getting started: Things done before optimization begins
 
-### Getting started
+1. Checked out the repository
+
+1. Installed nodejs and npm
+
+1. Installed bower (thru npm install -g within app folder) for web app dependencies;
+  did bower init to create bower.json config and bower_components directory within app folder;
+  used bower [...] --save to edit bower.json config
+
+1. Installed knockout (thru bower) for JavaScript mvc framework. I did not have to use for this project but I wanted to practice use of bower for upcoming projects.
+
+1. npm init within project folder
+  used npm install [...] --save-dev to edit package.json config and install locally in project
+
+1. installed GULP and gulp plugins npm install [...] --save-dev. This is to automate optimization process, e.g. image compression and minimification of CSS, JavaScript, and HTML files
 
 ####Part 1: Optimize PageSpeed Insights score for index.html
-
-Some useful tips to help you get started:
-
-1. Check out the repository
-
-1. installed nodejs, npm,
-bower (thru npm install -g within app folder) for web app dependencies
-  did bower init to create bower.json config and bower_components directory within app folder
-  used bower ... --save to edit bower.json config
-
-knockout (thru bower) for JavaScript mvc framework
-
-npm init within project folder
-  used npm install .... --save-dev to edit package.json config and install locally in project
-
-installed gulp and gulp plugins npm install ... --save-dev. This is to automate optimization process, e.g. image compression and minimification of CSS, JavaScript, and HTML files
-
 
 1. To inspect the site on your phone, you can run a local server
 
@@ -42,13 +38,13 @@ installed gulp and gulp plugins npm install ... --save-dev. This is to automate 
 
 1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights!
 
-####OPTIMIZATION STEPS
+#### OPTIMIZATION STEPS
 
 1. Using Gulp for this project. For practice, I converted CSS files to SASS scss format. This will allow me to easily preprocess in case I change anything.
 
 1. changed: <link href="styles/print.css" rel="stylesheet"> by adding attribute media="print"
 
-1. deleted old google analytics script and changed it to an asynchronous script from google.this is an asynchronous link to analytics.js
+1. deleted old google analytics script from all HTML files and changed it to an asynchronous script from google. This is an asynchronous link to analytics.js according to Google analytics.
 CODE:
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -59,17 +55,22 @@ CODE:
   ga('send', 'pageview');
 </script>
 
-1. set up my own analytics ID
+1. Set up my own analytics ID
 
-1. copied gulpfile.js from Google's web starter kit. See doc at https://developers.google.com/web/tools/starter-kit/
+1. Examined Google Web Starter Kit to find out structure for usage of Gulp
 
-1. ran with 'gulp serve' to see temp page
+1. Copied gulpfile.js from Google's web starter kit. See doc at https://developers.google.com/web/tools/starter-kit/
 
-1. Built minimized JS scripts. I got the idea from Google Web starter kit with the block <!-- build:js scripts/perfmatters.min.js -->
+1. Tested web page with 'gulp serve' to see temp page in action.
 
-1. deleted link to Google's CDN of web fonts to improve pageSpeed mobile score of 73/100
+1. Uploaded to live server the NON-optimized version and analyzed with pageSpeed.
+![image]()
 
-1. deferred loading of style.css by using code below from Google which it claims to be ASYNCHRONOUS
+1. Built minimized JS scripts. I got the idea from Google Web starter kit with the block <!-- build:js scripts/perfmatters.min.js --> in the HTML page.
+
+1. Deleted link to Google's CDN of web fonts to improve pageSpeed scores
+
+1. Deferred loading of style.css by using code below from Google which it claims to be ASYNCHRONOUS
 <script>
 var cb = function() {
 var l = document.createElement('link'); l.rel = 'stylesheet';
