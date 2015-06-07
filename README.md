@@ -2,28 +2,24 @@
 
 Optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
-To get started, check out the repository, inspect the code,
+#### Getting started: Things done before optimization begins
 
-### Getting started
+1. Checked out the repository
+
+1. Installed nodejs and npm
+
+1. Installed bower (thru npm install -g within app folder) for web app dependencies;
+  did bower init to create bower.json config and bower_components directory within app folder;
+  used bower [...] --save to edit bower.json config
+
+1. Installed knockout (thru bower) for JavaScript mvc framework. I did not have to use for this project but I wanted to practice use of bower for upcoming projects.
+
+1. npm init within project folder
+  used npm install [...] --save-dev to edit package.json config and install locally in project
+
+1. installed GULP and gulp plugins npm install [...] --save-dev. This is to automate optimization process, e.g. image compression and minimification of CSS, JavaScript, and HTML files
 
 ####Part 1: Optimize PageSpeed Insights score for index.html
-
-Some useful tips to help you get started:
-
-1. Check out the repository
-
-1. installed nodejs, npm,
-bower (thru npm install -g within app folder) for web app dependencies
-  did bower init to create bower.json config and bower_components directory within app folder
-  used bower ... --save to edit bower.json config
-
-knockout (thru bower) for JavaScript mvc framework
-
-npm init within project folder
-  used npm install .... --save-dev to edit package.json config and install locally in project
-
-installed gulp and gulp plugins npm install ... --save-dev. This is to automate optimization process, e.g. image compression and minimification of CSS, JavaScript, and HTML files
-
 
 1. To inspect the site on your phone, you can run a local server
 
@@ -40,18 +36,15 @@ installed gulp and gulp plugins npm install ... --save-dev. This is to automate 
   $> ngrok 8080
   ```
 
-1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights! Optional: [More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
+1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights!
 
-Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
+#### OPTIMIZATION STEPS
 
+1. Using Gulp for this project. For practice, I converted CSS files to SASS scss format. This will allow me to easily preprocess in case I change anything.
 
-OPTIMIZATION STEPS
+1. changed: <link href="styles/print.css" rel="stylesheet"> by adding attribute media="print"
 
-1. changed CSS files to SASS scss format. This will allow me to easily preprocess in case I change anything.
-
-1. changed: link href="styles/print.css" rel="stylesheet", added attribute media="print"
-
-1. deleted old google analytics script and changed it to an asynchronous script from google.this is an asynchronous link to analytics.js
+1. deleted old google analytics script from all HTML files and changed it to an asynchronous script from google. This is an asynchronous link to analytics.js according to Google analytics.
 CODE:
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -62,17 +55,22 @@ CODE:
   ga('send', 'pageview');
 </script>
 
-1. set up my own analytics ID
+1. Set up my own analytics ID
 
-1. copied gulpfile.js from Google's web starter kit
+1. Examined Google Web Starter Kit to find out structure for usage of Gulp
 
-1. ran with gulp serve to see temp page
+1. Copied gulpfile.js from Google's web starter kit. See doc at https://developers.google.com/web/tools/starter-kit/
 
-1. the build of minimized JS scripts, I got the idea from Google Web starter kit with the block <!-- build:js scripts/perfmatters.min.js -->
+1. Tested web page with 'gulp serve' to see temp page in action.
 
-1. deleted link to Google's CDN of web fonts (73/100 for mobile)
+1. Uploaded to live server the NON-optimized version and analyzed with pageSpeed.
+![image]()
 
-1. deferred loading to style.css. code below from Google
+1. Built minimized JS scripts. I got the idea from Google Web starter kit with the block <!-- build:js scripts/perfmatters.min.js --> in the HTML page.
+
+1. Deleted link to Google's CDN of web fonts to improve pageSpeed scores
+
+1. Deferred loading of style.css by using code below from Google which it claims to be ASYNCHRONOUS
 <script>
 var cb = function() {
 var l = document.createElement('link'); l.rel = 'stylesheet';
@@ -85,12 +83,27 @@ if (raf) raf(cb);
 else window.addEventListener('load', cb);
 </script>
 
-1. commented out link tag to styles/style.css
+1. Then commented out link tag to styles/style.css
 
 ####Part 2: Optimize Frames per Second in pizza.html
 
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js.
+To optimize views/pizza.html, modify views/js/main.js until frames per second rate is 60 fps or higher.
 
+1. measured with google PageSpeed Insights first to see what needs to be optimized on loading without user events. For mobile the score is 66/100 and for desktop 30/100 (http://linguist.us/p4_1_non-optimized/views/pizza.html). I optimized all the assets CSS, JS, HTML, and image files using Gulp. After optimization of some assets, mobile score is 91/100 and desktop 93/100 (http://linguist.us/p4_1_optimized/pizza/).
+
+1. As my screenshots show, the timeline of the NON-optimized pizza web page is below 30 FPS.
+![image](documents/pizza/pizzaTimelineNONoptimized1.png)
+
+1. in addition to Optimization courses, I read udacity's notes at https://github.com/udacity/fend-office-hours/tree/master/Web%20Optimization/Effective%20Optimizations%20for%2060%20FPS and also watched udacity's webcast to help me with the solution: https://plus.google.com/events/c8eah6f0d0t9eretebpm7dqi0ok?authkey=CKaNhtb0quvqKA
+
+### FIRST STAGE OPTIMIZATION:
+1. I took out scrollTop out of the FOR loop in the function updatePositions() in main.js and decreased the number of sliding pizzas from 200 to 20 in document.addEventListener('DOMContentLoaded', function() {}
+
+1. The screenshot FirstStageOptimization.png shows that the FPS increased from 30 FPS. The 60fps line is now showing in the timeline
+
+1. In the chrome developer console, the average time to load last 10 frames went from 30-48ms to .30 ms.
+
+-----------------------------
 You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
 ### Optimization Tips and Tricks
