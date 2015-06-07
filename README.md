@@ -66,7 +66,8 @@ CODE:
 1. Tested web page with 'gulp serve' to see temp page in action.
 
 1. Uploaded to live server the NON-optimized version and analyzed with pageSpeed.
-![image]()
+![image](documents/portfolio/mobile-NONoptimized.png)
+![image](documents/portfolio/desktop-NONoptimized.png)
 
 1. Built minimized JS scripts. I got the idea from Google Web starter kit with the block <!-- build:js scripts/perfmatters.min.js --> in the HTML page.
 
