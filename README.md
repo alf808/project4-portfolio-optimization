@@ -2,6 +2,8 @@
 
 Optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
+### Part 1 of web optimization
+
 #### Getting started: Things done before optimization begins
 
 1. Checked out the repository
@@ -19,18 +21,17 @@ Optimize the critical rendering path and make this page render as quickly as pos
 
 1. installed GULP and gulp plugins npm install [...] --save-dev. This is to automate optimization process, e.g. image compression and minimification of CSS, JavaScript, and HTML files
 
-####Part 1: Optimize PageSpeed Insights score for index.html
+#### Optimize PageSpeed Insights score for index.html
 
 1. To inspect the site on your phone, you can run a local server
-
   ```bash
   $> cd /path/to/your-project-folder
   $> python -m SimpleHTTPServer 8080
   ```
 
 1. Open a browser and visit localhost:8080
-1. Download and install [ngrok](https://ngrok.com/) to make your local server accessible remotely.
 
+1. Download and install [ngrok](https://ngrok.com/) to make your local server accessible remotely.
   ``` bash
   $> cd /path/to/your-project-folder
   $> ngrok 8080
@@ -77,6 +78,7 @@ CODE:
 1. Deleted link to Google's CDN of web fonts to improve pageSpeed scores
 
 1. Deferred loading of style.css by using code below from Google which it claims to be ASYNCHRONOUS
+``` html
 <script>
 var cb = function() {
 var l = document.createElement('link'); l.rel = 'stylesheet';
@@ -88,7 +90,7 @@ webkitRequestAnimationFrame || msRequestAnimationFrame;
 if (raf) raf(cb);
 else window.addEventListener('load', cb);
 </script>
-
+```
 1. Then commented out link tag to styles/style.css
 
 1. These are the final results of the PageSpeed analysis after optimization -- 99/100 for mobile and 97/100 for desktop.
@@ -97,11 +99,11 @@ else window.addEventListener('load', cb);
 ![image](documents/portfolio/desktop-optimized.png)
 
 1. Additional documents here:
-Detailed PageSpeed Analyses of pages:
--- [NON-optimized PageSpeed Analysis for mobile] (documents/portfolio/mobile-NONoptimized.pdf)
-and [NON-optimized PageSpeed Analysis for desktop] (documents/portfolio/desktop-NONoptimized.pdf)
 
--- [Optimized PageSpeed Analysis] (documents/portfolio/desktop-optimized.pdf)
+2. [NON-optimized PageSpeed Analysis for mobile](documents/portfolio/mobile-NONoptimized.pdf)
+2. [NON-optimized PageSpeed Analysis for desktop](documents/portfolio/desktop-NONoptimized.pdf)
+
+2. [Optimized PageSpeed Analysis](documents/portfolio/desktop-optimized.pdf)
 
 
 
