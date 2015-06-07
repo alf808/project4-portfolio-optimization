@@ -69,6 +69,8 @@ CODE:
 ![image](documents/portfolio/mobile-NONoptimized.png)
 ![image](documents/portfolio/desktop-NONoptimized.png)
 
+1. Built minized assets using Gulp
+
 1. Built minimized JS scripts. I got the idea from Google Web starter kit with the block <!-- build:js scripts/perfmatters.min.js --> in the HTML page.
 
 1. Deleted link to Google's CDN of web fonts to improve pageSpeed scores
@@ -87,6 +89,13 @@ else window.addEventListener('load', cb);
 </script>
 
 1. Then commented out link tag to styles/style.css
+
+1. These are the final results of the PageSpeed analysis after optimization
+![image](documents/portfolio/mobile-optimized.png)
+![image](documents/portfolio/desktop-optimized.png)
+
+1. Additional documents here:
+
 
 ####Part 2: Optimize Frames per Second in pizza.html
 
