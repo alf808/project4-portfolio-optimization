@@ -91,6 +91,14 @@ else window.addEventListener('load', cb);
 
 To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js.
 
+1. measured with google PageSpeed Insights first to see what needs to be optimized on loading without user events. For mobile the score is 66/100 and for desktop 30/100 (http://linguist.us/p4_1_non-optimized/views/pizza.html). I optimized all the assets CSS, JS, HTML, and image files using Gulp. After optimization of some assets, mobile score is 91/100 and desktop 93/100 (http://linguist.us/p4_1_optimized/pizza/).
+
+1. As my screenshots show, the timeline of the NON-optimized pizza web page is below 30 FPS.
+
+1.
+
+
+-----------------------------
 You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
 ### Optimization Tips and Tricks
