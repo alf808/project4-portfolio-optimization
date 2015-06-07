@@ -109,25 +109,36 @@ else window.addEventListener('load', cb);
 
 ### Part 2 of web optimization: Optimize Frames per Second in pizza.html
 
-#### First steps
+#### First steps: Measurements
 
 1. measured with google PageSpeed Insights first to see what needs to be optimized on loading without user events. For mobile the score is 66/100 and for desktop 30/100 (http://linguist.us/p4_1_non-optimized/views/pizza.html).
 ![image](documents/pizza/pizzaMobilePagespeedNONopt.png)
 
-1. I optimized all the assets CSS, JS, HTML, and image files using Gulp. After optimization of some assets, mobile score is 91/1
-00 and desktop 93/100 (http://linguist.us/p4_1_optimized/pizza/).
 ![image](documents/pizza/pizzaDesktopPagspeedNONopt.png)
+
 
 1. As my screenshots show, the timeline of the NON-optimized pizza web page is below 30 FPS with scrolling and clicking events.
 ![image](documents/pizza/pizzaTimelineNONoptimized1.png)
 
 ![image](documents/pizza/pizzaTimelineNONoptimized2.png)
 
-![image](documents/pizza/forcedSynchronoous.png)
+![image](documents/pizza/forcedSynchronous.png)
+
+2. download timeline here for further analysis of results above: (documents/pizza/TimelineRawData-pizzaNonOptimized.json.zip)
+
+
+### FIRST STAGE OPTIMIZATION:
+
+1. I optimized all the assets CSS, JS, HTML, and image files using Gulp. After optimization of some assets, mobile score is 91/1
+00 and desktop 93/100 (http://linguist.us/p4_1_optimized/pizza/).
+![image](documents/pizza/pizzaMobilePageSpeedAfterOpt.png)
+
+![image](documents/pizza/pizzaDesktopPageSpeedAfterOpt.png)
+
 
 1. in addition to Optimization courses, I read udacity's notes at https://github.com/udacity/fend-office-hours/tree/master/Web%20Optimization/Effective%20Optimizations%20for%2060%20FPS and also watched udacity's webcast to help me with the solution: https://plus.google.com/events/c8eah6f0d0t9eretebpm7dqi0ok?authkey=CKaNhtb0quvqKA
 
-### FIRST STAGE OPTIMIZATION:
+
 To optimize views/pizza.html, modify views/js/main.js until frames per second rate is 60 fps or higher.
 
 1. I took out scrollTop out of the FOR loop in the function updatePositions() in main.js and decreased the number of sliding pizzas from 200 to 20 in document.addEventListener('DOMContentLoaded', function() {}
