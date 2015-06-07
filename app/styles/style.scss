@@ -1,0 +1,156 @@
+//colors
+$color_mine_shaft_approx: #333;
+$color_persian_blue_approx: #12c;
+$color_purple_heart_approx: #61c;
+$color_guardsman_red_approx: #c00;
+$white: #fff;
+$color_milano_red_approx: #c90b0b;
+$color_desert_storm_approx: #f8f8f8;
+$color_celeste_approx: #ccc;
+
+//fonts
+$font_0: Open Sans;
+$font_1: sans-serif;
+$font_2: monospace;
+
+html {
+	font-size: 100%;
+	overflow-y: scroll;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: none;
+}
+body {
+	margin: 0;
+	font-size: 14px;
+	line-height: 1.61;
+	font-weight: 400;
+	background: $white;
+	font-family: $font_0, $font_1;
+	color: $color_mine_shaft_approx;
+}
+button {
+	font-family: $font_0, $font_1;
+	color: $color_mine_shaft_approx;
+}
+input {
+	font-family: $font_0, $font_1;
+	color: $color_mine_shaft_approx;
+}
+select {
+	font-family: $font_0, $font_1;
+	color: $color_mine_shaft_approx;
+}
+textarea {
+	font-family: $font_0, $font_1;
+	color: $color_mine_shaft_approx;
+}
+a {
+	color: $color_persian_blue_approx;
+	&:visited {
+		color: $color_purple_heart_approx;
+	}
+	&:focus {
+		outline: thin dotted;
+	}
+	&:hover {
+		color: $color_guardsman_red_approx;
+		outline: 0;
+	}
+	&:active {
+		color: $color_guardsman_red_approx;
+		outline: 0;
+	}
+}
+b {
+	font-weight: bold;
+}
+strong {
+	font-weight: bold;
+}
+pre {
+	font-family: $font_2, $font_2;
+	font-size: 1em;
+}
+code {
+	font-family: $font_2, $font_2;
+	font-size: 1em;
+}
+ul {
+	margin: 1em 0;
+	padding: 0 0 0 20px;
+}
+ol {
+	margin: 1em 0;
+	padding: 0 0 0 20px;
+}
+img {
+	border: 0;
+	max-width: 100%;
+}
+header {
+	max-width: 45em;
+	margin: 0 auto;
+	padding: 0 0.5em;
+	color: $color_milano_red_approx;
+	img {
+		//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+		border-radius: 40px;
+		float: left;
+	}
+	p {
+		font-size: 1.5em;
+		font-weight: bold;
+		padding-left: 4em;
+		span {
+			font-size: 0.8em;
+			font-weight: normal;
+		}
+	}
+}
+footer {
+	max-width: 45em;
+	margin: 0 auto;
+	padding: 0 0.5em;
+	border-top: 1px solid $color_celeste_approx;
+	span {
+		float: right;
+		font-style: italic;
+	}
+}
+.container {
+	max-width: 45em;
+	margin: 0 auto;
+}
+.hero {
+	padding: 2em;
+	background-color: $color_desert_storm_approx;
+	font-size: 1.2em;
+	border-bottom: 1px solid $color_celeste_approx;
+	border-top: 1px solid $color_celeste_approx;
+}
+.content {
+	padding: 1em;
+	li {
+		list-style-type: none;
+		font-size: 1.1em;
+	}
+}
+li {
+	img {
+		float: left;
+		padding-right: 1em;
+	}
+	p {
+		font-size: 0.9em;
+		font-style: italic;
+	}
+}
+@media only screen and(max-width: 480px) {
+	body {
+		font-size: 12px;
+	}
+	header p {
+		padding-left: 4.5em;
+	}
+}
