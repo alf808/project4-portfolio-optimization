@@ -67,6 +67,7 @@ CODE:
 
 1. Uploaded to live server the NON-optimized version and analyzed with pageSpeed.
 ![image](documents/portfolio/mobile-NONoptimized.png)
+
 ![image](documents/portfolio/desktop-NONoptimized.png)
 
 1. Built minized assets using Gulp
@@ -92,9 +93,15 @@ else window.addEventListener('load', cb);
 
 1. These are the final results of the PageSpeed analysis after optimization
 ![image](documents/portfolio/mobile-optimized.png)
+
 ![image](documents/portfolio/desktop-optimized.png)
 
 1. Additional documents here:
+Detailed PageSpeed Analyses of pages:
+- [NON-optimized PageSpeed Analysis] documents/portfolio/mobile-NONoptimized.pdf
+and documents/portfolio/desktop-NONoptimized.pdf
+- [Optimized PageSpeed Analysis] documents/portfolio/desktop-optimized.pdf
+
 
 
 ####Part 2: Optimize Frames per Second in pizza.html
