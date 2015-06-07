@@ -91,16 +91,17 @@ else window.addEventListener('load', cb);
 
 1. Then commented out link tag to styles/style.css
 
-1. These are the final results of the PageSpeed analysis after optimization -- 99/100 for mobile and 97/100 for mobile.
+1. These are the final results of the PageSpeed analysis after optimization -- 99/100 for mobile and 97/100 for desktop.
 ![image](documents/portfolio/mobile-optimized.png)
 
 ![image](documents/portfolio/desktop-optimized.png)
 
 1. Additional documents here:
 Detailed PageSpeed Analyses of pages:
-* [NON-optimized PageSpeed Analysis] (documents/portfolio/mobile-NONoptimized.pdf)
-and documents/portfolio/desktop-NONoptimized.pdf
-* [Optimized PageSpeed Analysis] (documents/portfolio/desktop-optimized.pdf)
+-- [NON-optimized PageSpeed Analysis for mobile] (documents/portfolio/mobile-NONoptimized.pdf)
+and [NON-optimized PageSpeed Analysis for desktop] (documents/portfolio/desktop-NONoptimized.pdf)
+
+-- [Optimized PageSpeed Analysis] (documents/portfolio/desktop-optimized.pdf)
 
 
 
