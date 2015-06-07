@@ -95,7 +95,12 @@ To optimize views/pizza.html, you will need to modify views/js/main.js until you
 
 1. As my screenshots show, the timeline of the NON-optimized pizza web page is below 30 FPS.
 
-1.
+1. in addition to Optimization courses, I also watched udacity's webcast to help me with the solution: https://plus.google.com/events/c8eah6f0d0t9eretebpm7dqi0ok?authkey=CKaNhtb0quvqKA
+
+### FIRST STAGE OPTIMIZATION:
+1. I took out scrollTop out of the FOR loop in the function updatePositions() in main.js and decreased the number of sliding pizzas from 200 to 20 in document.addEventListener('DOMContentLoaded', function() {}
+
+1. The screenshot FirstStageOptimization.png shows that the FPS increased from 30 FPS. The 60fps line is now showing in the timeline
 
 
 -----------------------------
