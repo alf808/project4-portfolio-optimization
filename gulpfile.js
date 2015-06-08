@@ -39,10 +39,11 @@ gulp.task('jshint', function () {
 // Optimize images
 gulp.task('images', function () {
   return gulp.src('app/img/**/*')
-    .pipe($.cache($.imagemin({
+    .pipe($.imageOptimization({
+      optimizationLevel: 7,
       progressive: true,
       interlaced: true
-    })))
+    }))
     .pipe(gulp.dest('dist/img'))
     .pipe($.size({title: 'images'}));
 });
