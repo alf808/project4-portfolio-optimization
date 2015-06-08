@@ -159,6 +159,15 @@ down to 2ms [FASTER](http://linguist.us/p4_1_optimized/pizza/).
 
 ![image](documents/pizza/sliderOptimized.png)
 
+-----------------------------------------------------------
+#### My comments after first code reviewer feedback
+1. I have tried gulp-imagemin and gulp-image-optimization. Some of the optimization done by these 2 plugins are not good enough for google page speed. I used the compressed version provided by google pageSpeed for the purposes of this project.
+
+1. For the comment you made regarding getElementsByClassName, I kept it at querySelector. I only needed to get the first element found which is what querySelector does. See: https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
+
+1. I used the translationX property and it does seem faster.
+
+1. I used innerHeight and innerWidth window properties to determine the number of sliding pizzas I can place in browser’s surface area.
 
 -----------------------------
 You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).

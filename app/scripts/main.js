@@ -451,18 +451,25 @@ var resizePizzas = function(size) {
   // Iterates through pizza elements on the page and changes their widths
   // took out querySelector out of FOR loop
   function changePizzaSizes(size) {
-  	// Select the first randomPizzaContainer since it has same dimensions as other
-  	// pass pizzaBox off to the determineDx function
-    var pizzaBox = document.querySelector(".randomPizzaContainer").offsetWidth;
-    var windowwidth = document.querySelector("#randomPizzas").offsetWidth;
-  	var dx = determineDx(pizzaBox, size, windowwidth);
-    var newwidth = (pizzaBox + dx) + 'px';
+  	// Select the first randomPizzaContainer since it has same dimensions as
+    // other randomPizzaContainer. var pizzaBox is passed to determineDx function
+    // I attempted to change to getElementsByClassName and getElementById below
+    // as suggested udacity code reviewer but those functions get an array as
+    // opposed to one item which exactly what querySelector does.
+    var pizzaBox = document.querySelector(".randomPizzaContainer");
+    var pizzaBoxWidth = pizzaBox.offsetWidth;
+
+    var windowwidth = document.getElementById("randomPizzas").offsetWidth;
+
+  	var dx = determineDx(pizzaBoxWidth, size, windowwidth);
+    var newwidth = (pizzaBoxWidth + dx) + 'px';
     // Select all of the .randomPizzaContainer elements in the DOM
-    var allPizzaBoxes = document.querySelectorAll(".randomPizzaContainer");
+    var pizzaBoxes = document.getElementsByClassName("randomPizzaContainer");
+    var numPizzaBoxes = pizzaBoxes.length;
     // Loop throught all the .randomPizzaContainer elements in the DOM
     // and appy a new width value
-    for (var i = allPizzaBoxes.length; i--;) {
-      allPizzaBoxes[i].style.width = newwidth;
+    for (var i = numPizzaBoxes; i--;) {
+      pizzaBoxes[i].style.width = newwidth;
     }
   }
 
@@ -517,8 +524,14 @@ function updatePositions() {
   var items = document.getElementsByClassName('mover');
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin(sctop + (i % 5));
-    // console.log(phase,i,i%5);
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    // changed to negative through trial and error for positioning
+    var left = -(items[i].basicLeft + 1000 * phase) + 'px';
+
+    // Using transform: tranlateX() which will force the sliding pizzas
+    // to be on their own composite layers as suggested by udacity code reviewer
+    // I added the translateZ(0) to make it even go faster from udacity's notes
+    // at https://github.com/udacity/fend-office-hours/tree/master/Web%20Optimization/Effective%20Optimizations%20for%2060%20FPS
+    items[i].style.transform = "translateX(" + left +") translateZ(0)";
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -534,12 +547,17 @@ function updatePositions() {
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
 
+// Calculating number of sliding pizzas that can fit in browser's surface area
+var row = window.innerHeight / 100;
+var col = window.innerWidth / 75;
+var numberOfSlidingPizzas = Math.round(row * col);
+// console.log(numberOfSlidingPizzas);
 // Generates the sliding pizzas when the page loads.
 // decreased the number of sliding pizzas from 200 to 20
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 20; i++) {
+  for (var i = 0; i < numberOfSlidingPizzas; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "img/pizza.png";
